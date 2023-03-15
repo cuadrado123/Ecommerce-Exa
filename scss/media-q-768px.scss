@@ -1,0 +1,111 @@
+@media screen and (min-width: 768px) {
+
+    // ------------------------------------------  header
+    header {
+        nav {
+            ul {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: $ancho;
+                margin-left: 20px;
+            }
+
+            li {
+                list-style: none;
+                font-size: 15px;
+                margin: 10px 10px;
+            }
+        }
+    }
+
+    // -----------------------------------------------  main
+
+    main {
+
+        // -------------------------------------------  divider
+        ol{
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .breadcrumb{
+            justify-content: left;
+        }               
+
+        // ------------------------------------------- logo wsp
+
+        .main-img-logo-w {
+            width: $max-img;
+            right: 8px;
+        }
+
+        // -------------------------------------------  estilos a sub-titulo
+
+        h3 {
+            font-size: 1.6rem;
+        }
+
+        // -------------------------------------------  contenedor de imagenes 
+
+        .contenedor-section2 {
+            grid-template-columns: repeat(3, 1fr);
+            font-size: 15px;
+            grid-row-gap: 25px;
+
+            div {
+                width: 170px;
+            }
+
+            img {
+                border-radius: 30px;
+                border: solid 4px $border-color-img;
+            }
+
+            // -------------------------------------- definimos un tamaño al precio
+            .tamaño-p {
+                font-size: 23px;
+            }
+        }
+    }
+    // -----------------------------------------  footer
+    footer {
+        
+        .contenedor-section3 {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 30px;
+
+            li {
+                font-size: 12px;
+            }
+        }
+
+        // -------------------------------------------------  Estilo de la section 4
+
+        .contenedor-section4 {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            margin-top: 30px;
+
+            div {
+                font-size: 13px;
+                width: 40%;
+
+                p {
+                    margin-bottom: 5px;
+                    text-align: center;
+
+                    span {
+                        color: #3c3c86;
+                        text-decoration: underline solid #3c3c86;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+}

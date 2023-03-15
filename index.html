@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/logos/bicicleta.png">
+
+    <!-- Descripcion -->
+    <meta name="description" content="Exabikes las mejores bicicletas de cordoba al mejor precio, 
+    las mejores marcas y accecorios para tu bicicleta. Realizamos reparaciones y cambios a tu bicicleta">
+
+    <!-- Keywords -->
+    <meta name="keywords" content="bicicleteria exabikes accesorios indumentaria reparaciones">
+
+    <!-- Link de animation on scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Link de boostrap -->
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
+
+    <!-- Link de css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/carrito.css">
+
+    <title>Exa Bikes - Home</title>
+</head>
+
+<body>
+    <!-- Aca empieza el cuerpo de la pagina -->
+
+    <main>
+
+        <div>
+            <a href="https://api.whatsapp.com/send?phone=3513997328" target="blanked"><img class="main-img-logo-w"
+                    src="img/logos/whatsapp.png" alt="whatsapp"></a>
+        </div>
+
+        <!-- Seccion de bicis destacadas -->
+
+        <section class="container">
+
+            <!-- Icono del Carrito-->
+            <button class="btn" id="mostrar_carrito">
+                <i class="bi-cart-fill"></i>
+                <span class="badge bg-dark text-white ms-1 rounded-pill id_contador">0</span>
+            </button>
+
+            <!-- Item del carrito -->
+            <div class="container div_carrito" id="carrito">
+                <div id="tbody">
+
+                </div>
+
+                <!-- total del carrito -->
+                <section class="Precio-carrito">
+                    <div class="row d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="col-8 botones_carrito">
+                            <button class="btn btn-secondary continuar_C">Continuar Compra</button>
+                            <button class="btn btn-vaciar vaciar_C">Vaciar carrito</button>
+                        </div>
+                        <div class="col-4 monto_total">
+                            <span>Total: </span>
+                            <span class="$">$</span>
+                            <span class="PrecioTotal"></span>
+                            
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Productos destacados -->
+            <div class="row animacion my-3" data-aos="fade-right">
+                <div class="col d-flex flex-column align-items-center justify-content-center">
+                    <h3 class="color-subtitle">ARTICULOS DE BICICLETAS</h3>
+                </div>
+            </div>
+            <div class="row sectionDest d-flex flex-wrap align-items-center justify-content-center my-3 contenedor"
+                data-aos="fade-down">
+                <div class="linea"></div>
+            </div>
+        </section>
+
+    </main>
+    <!-- Pie de pagina -->
+    <footer>
+        <section class="contenedor-section3 ul-color container">
+
+            <div>
+                <ul>
+                    <li>
+                        <h3>Direccion</h3>
+                    </li>
+                    <li>Gral. Alvear 446</li>
+                    <li>Cordoba (CP: 5021)</li>
+                    <li>Tel: 3512759425</li>
+                    <li>Lunes a viernes de 10:00 a 20:00hs</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <h3 class="color-subtitle">Donde estamos</h3>
+                    </li>
+                    <li>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.089784397473!2d-64.18130858485206!3d-31.411652281405694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a29d8e61600f%3A0x3383bf38a2452587!2sExa%20Bikes!5e0!3m2!1ses-419!2sar!4v1653624031616!5m2!1ses-419!2sar"
+                            width="200" height="110" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <h3 class="color-subtitle">Seguinos en nuestras redes</h3>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/exa_bikes/" target="blanked"><img
+                                src="img/logos/instagram.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/search/top?q=exa%20bikes" target="blanked"><img
+                                src="img/logos/facebook.png" alt="facebook"></a>
+
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="contenedor-section4 ul-color container">
+            <div>
+                <p>Exabikes - Bicicleteria | © Todos los derechos reservados.</p>
+            </div>
+            <div>
+                <p>Sitio web diseñado y desarrollado por <span>Antonio Cuadrado Valdez</span></p>
+            </div>
+        </section>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="./js/productos.js"></script>
+
+
+</body>
+
+</html>

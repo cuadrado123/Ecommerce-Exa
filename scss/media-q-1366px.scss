@@ -1,0 +1,60 @@
+@media screen and (min-width: 1366px) {
+
+    // ------------------------------------------  header
+    header {
+        nav {
+            h1 {
+                font-size: 30px;
+            }
+
+            li {
+                font-size: 20px;
+            }
+        }
+    }
+
+    // ------------------------------------------  main
+    main {
+        h3 {
+            font-size: 2rem;
+        }
+
+        // ------------------------------------------  contenedor de img
+        .contenedor-section2 {
+            font-size: 16px;
+            grid-column-gap: 40px;
+            grid-row-gap: 70px;
+
+            div {
+                width: 190px;
+            }
+
+            img {
+                border-radius: 40px;
+            }
+
+            // ------------------------------------------  definimos tamaño al precio
+            .tamaño-p {
+                font-size: 25px;
+            }
+        }
+
+        .section-form{
+            height: 64vh;   
+        }
+
+    }
+
+    // ------------------------------------------  footer
+    footer {
+        .contenedor-section3 {
+            h3 {
+                font-size: 18px;
+            }
+
+            li {
+                font-size: 13px;
+            }
+        }
+    }
+}

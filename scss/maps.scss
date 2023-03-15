@@ -1,0 +1,31 @@
+// Maps
+
+$estilos: (
+    subtitle: #212529,
+    title: #f0f8ff,
+);
+
+@each $name, $color in $estilos {
+    .color-#{$name}{
+        color: $color;
+    }
+}
+
+// extend
+
+.ul-color{
+    @extend li; 
+    color: #000000;
+}
+
+
+// Mixins
+
+@mixin lista-nav {
+    margin: 8px;
+}
+
+.nav-link.active{
+    @include lista-nav;
+    text-align: center;
+}
