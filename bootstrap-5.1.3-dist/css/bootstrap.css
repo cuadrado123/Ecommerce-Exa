@@ -3054,7 +3054,7 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #faaa9c;
   border-color: #faaa9c;
-  box-shadow: 0 0 0 0.25rem #faaa9c;
+
 }
 .btn-check:checked + .btn-secondary, .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
   color: #fff;
@@ -3083,7 +3083,6 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #cd8add;
   border-color: #cd8add;
-  box-shadow: 0 0 0 0.25rem #cd8add;
 }
 .btn-check:checked + .btn-vaciar, .btn-check:active + .btn-vaciar, .btn-vaciar:active, .btn-vaciar.active, .show > .btn-vaciar.dropdown-toggle {
   color: #fff;

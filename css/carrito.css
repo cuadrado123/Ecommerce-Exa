@@ -55,3 +55,15 @@
 main .contenedor {
     width: 100%;
 }
+
+.Finalizar_compra{
+    margin: 0px;
+}
+.spinner-grow{
+    width: 3rem;
+    height: 3rem;
+}
+
+.alert{
+    padding-top: 10px;
+}

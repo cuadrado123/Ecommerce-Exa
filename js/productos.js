@@ -66,18 +66,55 @@ let contenedor = document.querySelector(".contenedor");
 let PrecioTotal = document.querySelector(".PrecioTotal");
 let btn_carrito = document.getElementById("mostrar_carrito");
 let vaciar_carrito = document.querySelector(".vaciar_C");
+let continuar_compra = document.querySelector(".continuar_C");
+let obtener_articulos = document.querySelector("#obtener_articulos");
+let Total_compra = document.querySelector(".Total_compra");
+let terminar_venta = document.querySelector("#terminar_venta")
+
+// evento para obtner los articulos en otro html
+if (obtener_articulos) {
+    obtener_articulos.addEventListener("click", cargarPedido);
+}
+
+if (terminar_venta) {
+    terminar_venta.addEventListener('click', enviar_compra);
+}
+
+// Creo un evento de que si no hay nada en el carrito me salte una alerta
+if (continuar_compra) {
+    // SweetAlert
+    continuar_compra.addEventListener("click", () => {
+        if (carrito.length === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Tu carrito esta vacio',
+                text: 'Agrega un articulo para continuar la compra',
+                confirmButtonText: 'Aceptar',
+            })
+        }
+        else {
+            location.href = "carrito.html";
+            cargarPedido();
+        }
+    })
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     carrito = JSON.parse(localStorage.getItem("art_carrito")) || [];
     ver_carrito();
+
+    if (obtener_articulos) {
+        document.querySelector("#obtener_articulos").click(cargarPedido)
+    }
 })
 
 // creo un contenedor con los productos y los coloco en el html
 for (let art of Productos) {
     const { id, nombre, precio, img, cantidad } = art; // 
-    contenedor.innerHTML += `<div class="col d-flex align-items-center justify-content-around">
+    if (contenedor) {
+        contenedor.innerHTML += `<div class="col d-flex align-items-center justify-content-around">
                                 <div class="card d-flex align-items-center justify-content-center">
-                                    <img src="${img}" class="card-img-top" alt="destacada4">
+                                    <img src="${img}" class="card-img-top" alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">${nombre}</h5>
                                         <p class="card-text">$ ${precio}</p>
@@ -86,6 +123,7 @@ for (let art of Productos) {
                                 </div>
                             </div>`
 
+    }
 }
 
 // creo la funcion para agregar productos al carrito
@@ -113,14 +151,16 @@ function agregar_carrito(id) {
 // muestro los productos agregados al carrito
 function ver_carrito() {
     let tabla = document.getElementById("tbody");
-    tabla.innerHTML = ""; // esto es para que no se repitan los articulos al cargarlos
 
-    // recorro los productos 
-    for (let prod of carrito) {
-        const { id, nombre, precio, img, cantidad } = prod;
+    if (tabla) {
+        tabla.innerHTML = ""; // esto es para que no se repitan los articulos al cargarlos
 
-        let fila = document.createElement("div");
-        fila.innerHTML = `<section class="h-100">
+        // recorro los productos 
+        for (let prod of carrito) {
+            const { id, nombre, precio, img, cantidad } = prod;
+
+            let fila = document.createElement("div");
+            fila.innerHTML = `<section class="h-100">
                           <div class="container">
                               <div class="row d-flex justify-content-center align-items-center">
                                   <div class="items_carrito">
@@ -151,20 +191,22 @@ function ver_carrito() {
                           </div>    
                         </section>`;
 
-        tabla.append(fila); // muestro el producto
+            tabla.append(fila); // muestro el producto
+        }
     }
-
     // Si el carrito esta vacio que me lo muestre
     if (carrito.length === 0) {
         tabla.innerHTML = `<div class="mensaje-carrito">Tu carrito esta vacio</div>`;
     }
 
     // creo un acumulador de articulos para el carrito
-    numero_del_carrito.textContent = carrito.length;
-
+    if (numero_del_carrito) {
+        numero_del_carrito.textContent = carrito.length;
+    }
     // Calculo el total del carrito
-    PrecioTotal.textContent = carrito.reduce((total, art) => total + art.cantidad * art.precio, 0);
-
+    if (PrecioTotal) {
+        PrecioTotal.textContent = carrito.reduce((total, art) => total + art.cantidad * art.precio, 0);
+    }
     guardar_localStorage();
 }
 
@@ -174,7 +216,6 @@ function borrar_producto(id) {
     carrito = carrito.filter((eliminar) => eliminar.id !== guardarId);  //Traigo todos los productos menos el que cumpla la condicion
     ver_carrito();
 }
-
 
 // con esta funcion guardo los productos del carrito en el localstorage
 function guardar_localStorage() {
@@ -195,5 +236,57 @@ btn_carrito.addEventListener("click", function () {
     }
 })
 
+// creo un evento para vaciar el carrito
+if (vaciar_carrito) {
+    vaciar_carrito.addEventListener("click", () => {
+        carrito.length = [];
+        ver_carrito();
+    })
+}
 
+// Creo una funcion para cargar el pedido del carrito en el nuevo html
+function cargarPedido() {
+    carrito.forEach((art) => {
+        let registro_compra = document.querySelector("#registro_compra tbody")
+        const { id, nombre, precio, cantidad, img } = art;
 
+        let row = document.createElement("tr")
+        row.innerHTML += `
+                          <td><img class="img-fluid rounded-circle img_carrito" src="${img}" /></td>
+                          <td>${nombre}</td>
+                          <td>${cantidad}</td>
+                          <td>${precio}</td>
+                          <td>${precio * cantidad}</td>`
+
+        registro_compra.appendChild(row);
+    })
+
+    Total_compra.innerText = carrito.reduce((total, art) => total + art.cantidad * art.precio, 0);
+}
+
+function enviar_compra(e) {
+    let spinner = document.querySelector("#spinner");
+    spinner.classList.add("d-flex");
+    spinner.classList.remove("d-none");
+
+    setTimeout(() => {
+        spinner.classList.remove("d-flex");
+        spinner.classList.add("d-none");
+
+    }, 5000)
+
+    let alerta_success = document.createElement("p");
+    alerta_success.classList.add("alert", "alert-success", "d-block", "text-center", "mt-2");
+    alerta_success.textContent = "Compra finalizada vuelva pronto";
+
+    terminar_venta.appendChild(alerta_success);
+
+    setTimeout(() => {
+        alerta_success.remove();
+        location.href = "index.html";
+
+    }, 5000);
+
+    
+    localStorage.clear()
+}
