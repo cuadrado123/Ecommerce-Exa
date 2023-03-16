@@ -76,6 +76,7 @@ if (obtener_articulos) {
     obtener_articulos.addEventListener("click", cargarPedido);
 }
 
+// finalizo la compra
 if (finalizar_compra) {
     finalizar_compra.addEventListener('click', enviar_compra);
 }
@@ -99,6 +100,7 @@ if (continuar_compra) {
     })
 }
 
+// localstorage
 document.addEventListener("DOMContentLoaded", function () {
     carrito = JSON.parse(localStorage.getItem("art_carrito")) || [];
     ver_carrito();
@@ -262,6 +264,7 @@ function cargarPedido() {
     Total_compra.innerText = carrito.reduce((total, art) => total + art.cantidad * art.precio, 0);
 }
 
+// creo una funcion para finalizar la compra de los articulos
 function enviar_compra() {
     let spinner = document.querySelector("#spinner");
     spinner.classList.add("d-flex");
@@ -272,7 +275,7 @@ function enviar_compra() {
         spinner.classList.add("d-none");
 
     }, 3000)
-
+    // crea una alerta de que se realizo la compra
     let alerta_success = document.createElement("p");
     alerta_success.classList.add("alert", "alert-success", "d-block", "text-center", "mt-2");
     alerta_success.textContent = "Compra finalizada vuelva pronto";
@@ -285,6 +288,7 @@ function enviar_compra() {
 
     }, 3000);
 
+    // limpio el localstorage
     localStorage.clear()
 }
 
