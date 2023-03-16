@@ -36,8 +36,8 @@
         </button>
 
         <div id="carrito" class="form-group table-responsive contenido-compra">
-            <div id="terminar_venta">
-                <table class="table" id="registro_compra">
+            <div id="terminar_venta" class="listado_art">
+                <table class="table section_compra" id="registro_compra">
                     <thead>
                         <tr>
                             <th scope="col">Imagen</th>
@@ -48,17 +48,22 @@
                         </tr>
                     </thead>
                     <tbody>
-    
+
                     </tbody>
-                    <tr>
-                        <th colspan="4" scope="col">
-                            Total
-                            <p>$ <span class="Total_compra"></span></p>
-                        </th>
-                        <th>
-                            <button class="btn alinear-btn btn-primary finalizar_compra">Finalizar compra</button>
-                        </th>
-                    </tr>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="4" scope="col">
+                                Total
+                                <p>$ <span class="Total_compra"></span></p>
+                            </th>
+                            <th>
+                                <a href="index.html"><button class="btn btn-secondary continuar_C"> Seguir comprando</button></a>
+                                <button class="btn btn-success btn-block finalizar_compra">Finalizar compra</button>
+                            </th>
+                        </tr>
+                    </thead>
                 </table>
                 <div class="d-flex align-items-center justify-content-center d-none" id="spinner">
                     <div class="spinner-grow" role="status">
@@ -66,10 +71,10 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        
-        
+
+
 
         <div id="obtener_articulos"></div>
 

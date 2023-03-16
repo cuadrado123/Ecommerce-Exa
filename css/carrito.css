@@ -67,3 +67,20 @@ main .contenedor {
 .alert{
     padding-top: 10px;
 }
+
+.section_compra{
+    text-align: center;
+}
+
+.section_compra img{
+    width: 25%;
+}
+
+.listado_art{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.table a{
+    margin-left: 51%;
+}

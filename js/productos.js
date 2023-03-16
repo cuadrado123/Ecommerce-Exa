@@ -69,15 +69,15 @@ let vaciar_carrito = document.querySelector(".vaciar_C");
 let continuar_compra = document.querySelector(".continuar_C");
 let obtener_articulos = document.querySelector("#obtener_articulos");
 let Total_compra = document.querySelector(".Total_compra");
-let terminar_venta = document.querySelector("#terminar_venta")
+let finalizar_compra = document.querySelector(".finalizar_compra");
 
 // evento para obtner los articulos en otro html
 if (obtener_articulos) {
     obtener_articulos.addEventListener("click", cargarPedido);
 }
 
-if (terminar_venta) {
-    terminar_venta.addEventListener('click', enviar_compra);
+if (finalizar_compra) {
+    finalizar_compra.addEventListener('click', enviar_compra);
 }
 
 // Creo un evento de que si no hay nada en el carrito me salte una alerta
@@ -143,7 +143,6 @@ function agregar_carrito(id) {
     } else {
         let item = Productos.find((prod => prod.id === id)) // Busco el id del producto 
         carrito.push(item); // si encuantra el id lo agrega 
-
     }
     ver_carrito();
 }
@@ -223,7 +222,6 @@ function guardar_localStorage() {
     localStorage.setItem("art_carrito", art_local);
 }
 
-
 // creo una funcion para ocultar el carrito
 btn_carrito.addEventListener("click", function () {
     let carro = document.getElementById("carrito");
@@ -264,7 +262,7 @@ function cargarPedido() {
     Total_compra.innerText = carrito.reduce((total, art) => total + art.cantidad * art.precio, 0);
 }
 
-function enviar_compra(e) {
+function enviar_compra() {
     let spinner = document.querySelector("#spinner");
     spinner.classList.add("d-flex");
     spinner.classList.remove("d-none");
@@ -273,7 +271,7 @@ function enviar_compra(e) {
         spinner.classList.remove("d-flex");
         spinner.classList.add("d-none");
 
-    }, 5000)
+    }, 3000)
 
     let alerta_success = document.createElement("p");
     alerta_success.classList.add("alert", "alert-success", "d-block", "text-center", "mt-2");
@@ -285,8 +283,8 @@ function enviar_compra(e) {
         alerta_success.remove();
         location.href = "index.html";
 
-    }, 5000);
+    }, 3000);
 
-    
     localStorage.clear()
 }
+
