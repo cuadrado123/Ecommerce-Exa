@@ -266,29 +266,44 @@ function cargarPedido() {
 
 // creo una funcion para finalizar la compra de los articulos
 function enviar_compra() {
-    let spinner = document.querySelector("#spinner");
-    spinner.classList.add("d-flex");
-    spinner.classList.remove("d-none");
 
-    setTimeout(() => {
-        spinner.classList.remove("d-flex");
-        spinner.classList.add("d-none");
+    let correo = document.querySelector("#correo").value;
+    let cliente = document.querySelector("#cliente").value;
 
-    }, 3000)
-    // crea una alerta de que se realizo la compra
-    let alerta_success = document.createElement("p");
-    alerta_success.classList.add("alert", "alert-success", "d-block", "text-center", "mt-2");
-    alerta_success.textContent = "Compra finalizada vuelva pronto";
+    if (correo === "" || cliente === "") {
+        Swal.fire({
+            title: "Debes completar tus datos",
+            text: "Rellana el formulario",
+            icon: "error",
+            confirmButtonText: "OK"
+        })
+    }
+    else {
 
-    terminar_venta.appendChild(alerta_success);
+        let spinner = document.querySelector("#spinner");
+        spinner.classList.add("d-flex");
+        spinner.classList.remove("d-none");
 
-    setTimeout(() => {
-        alerta_success.remove();
-        location.href = "index.html";
+        setTimeout(() => {
+            spinner.classList.remove("d-flex");
+            spinner.classList.add("d-none");
 
-    }, 3000);
+        }, 3000)
+        // crea una alerta de que se realizo la compra
+        let alerta_success = document.createElement("p");
+        alerta_success.classList.add("alert", "alert-success", "d-block", "text-center", "mt-2");
+        alerta_success.textContent = "Compra finalizada vuelva pronto";
 
-    // limpio el localstorage
-    localStorage.clear()
+        terminar_venta.appendChild(alerta_success);
+
+        setTimeout(() => {
+            alerta_success.remove();
+            location.href = "index.html";
+
+        }, 3000);
+
+        // limpio el localstorage
+        localStorage.clear()
+
+    }
 }
-

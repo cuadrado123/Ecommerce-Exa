@@ -81,6 +81,7 @@ main .contenedor {
     margin-left: 10%;
 }
 
-.table a{
-    margin-left: 51%;
+.table button{
+    margin-left: 5rem;
+    margin-bottom: 1rem;
 }
