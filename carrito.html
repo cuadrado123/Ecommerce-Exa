@@ -39,52 +39,56 @@
         <button class="btn" id="mostrar_carrito">
             <i class="bi-cart-fill"></i>
             <span class="badge bg-dark text-white ms-1 rounded-pill id_contador">0</span>
-        </button>          
+        </button>
 
         <div id="carrito" class="form-group table-responsive contenido-compra">
             <div id="terminar_venta" class="listado_art">
-                <div class="form-floating mb-4 mt-3">
-                    <input type="text" class="form-control" id="cliente" placeholder="Text">
-                    <label for="floatingInput">Nombre y Apellido</label>
-                </div>
-                <div class="form-floating mb-5">
-                    <input type="email" class="form-control" id="correo" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                </div>
-                <table class="table section_compra" id="registro_compra">
-                    <thead>
-                        <tr>
-                            <th scope="col">Imagen</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">precio</th>
-                            <th scope="col">SubTotal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <form method="POST" id="finalizar_compra">
 
-                    </tbody>
-                </table>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th colspan="4" scope="col">
-                                Total
-                                <p>$ <span class="Total_compra"></span></p>
-                            </th>
-                            <th>
-                                <a href="index.html"><button class="btn btn-secondary continuar_C"> Seguir
-                                        comprando</button></a>
-                                <button class="btn btn-success btn-block finalizar_compra">Finalizar compra</button>
-                            </th>
-                        </tr>
-                    </thead>
-                </table>
-                <div class="d-flex align-items-center justify-content-center d-none" id="spinner">
-                    <div class="spinner-grow" role="status">
-                        <span class="sr-only"></span>
+                    <div class="form-floating mb-4 mt-3">
+                        <input type="text" class="form-control" name="persona" id="persona" placeholder="Text">
+                        <label for="floatingInput">Nombre y Apellido</label>
                     </div>
-                </div>
+                    <div class="form-floating mb-5">
+                        <input type="email" class="form-control" name="email_id" id="email_id"
+                            placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <table class="table section_compra" id="registro_compra">
+                        <thead>
+                            <tr>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">precio</th>
+                                <th scope="col">SubTotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="4" scope="col">
+                                    Total
+                                    <p>$ <span class="Total_compra"></span></p>
+                                </th>
+                                <th>
+                                    <a href="index.html"><button class="btn btn-secondary continuar_C"> Seguir
+                                            comprando</button></a>
+                                    <input type="submit" class="btn btn-success btn-block" id="button"
+                                        value="Finalizar compra">
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="d-flex align-items-center justify-content-center d-none" id="spinner">
+                        <div class="spinner-grow" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                    </div>
             </div>
 
         </div>

@@ -69,7 +69,7 @@ let vaciar_carrito = document.querySelector(".vaciar_C");
 let continuar_compra = document.querySelector(".continuar_C");
 let obtener_articulos = document.querySelector("#obtener_articulos");
 let Total_compra = document.querySelector(".Total_compra");
-let finalizar_compra = document.querySelector(".finalizar_compra");
+let finalizar_compra = document.querySelector("#finalizar_compra");
 
 // evento para obtner los articulos en otro html
 if (obtener_articulos) {
@@ -78,7 +78,7 @@ if (obtener_articulos) {
 
 // finalizo la compra
 if (finalizar_compra) {
-    finalizar_compra.addEventListener('click', enviar_compra);
+    finalizar_compra.addEventListener('submit', enviar_compra);
 }
 
 // Creo un evento de que si no hay nada en el carrito me salte una alerta
@@ -265,12 +265,12 @@ function cargarPedido() {
 }
 
 // creo una funcion para finalizar la compra de los articulos
-function enviar_compra() {
+function enviar_compra(e) {
+    e.preventDefault()
+    const persona = document.querySelector("#persona").value
+    const correo = document.querySelector("#email_id").value
 
-    let correo = document.querySelector("#correo").value;
-    let cliente = document.querySelector("#cliente").value;
-
-    if (correo === "" || cliente === "") {
+    if (correo === "" || persona === "") {
         Swal.fire({
             title: "Debes completar tus datos",
             text: "Rellana el formulario",
@@ -279,6 +279,27 @@ function enviar_compra() {
         })
     }
     else {
+
+        const btn = document.getElementById('button');
+        
+        // document.getElementById('procesar-pago')
+        //  .addEventListener('submit', function(event) {
+        //    event.preventDefault();
+
+        btn.value = 'Enviando...';
+
+        const serviceID = 'default_service';
+        const templateID = 'template_2sz78e4';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.value = 'Finalizar compra';
+                alert('Correo enviado!');
+            }, (err) => {
+                btn.value = 'Finalizar compra';
+                alert(JSON.stringify(err));
+            });
+
 
         let spinner = document.querySelector("#spinner");
         spinner.classList.add("d-flex");
@@ -301,9 +322,11 @@ function enviar_compra() {
             location.href = "index.html";
 
         }, 3000);
-
-        // limpio el localstorage
-        localStorage.clear()
-
     }
-}
+    // limpio el localstorage
+    localStorage.clear();
+};
+
+
+
+
