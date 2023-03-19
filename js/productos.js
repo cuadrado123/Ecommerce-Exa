@@ -268,9 +268,11 @@ function enviar_compra(e) {
     e.preventDefault()
     const persona = document.querySelector("#persona").value
     const correo = document.querySelector("#email_id").value
+    const telefono = document.querySelector("#telefono").value
+    const direccion = document.querySelector("#direccion").value
 
     // creo una condicion de si no se llenan los datos del form no se puede finalizar la compra
-    if (correo === "" || persona === "") {
+    if (correo === "" || persona === "" || telefono === "" || direccion === "" || telefono.length < 10) {
         //creo una alerta con sweetAlert
         Swal.fire({
             title: "Debes completar tus datos",
@@ -296,7 +298,7 @@ function enviar_compra(e) {
                 btn.value = 'Finalizar compra';
                 alert(JSON.stringify(err));
             });
-        
+
         // crea un spinner que simula el tiempo que tarda en hacerse la compra
         let spinner = document.querySelector("#spinner");
         spinner.classList.add("d-flex");

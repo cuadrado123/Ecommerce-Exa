@@ -44,16 +44,30 @@
         <div id="carrito" class="form-group table-responsive contenido-compra">
             <div id="terminar_venta" class="listado_art">
                 <form method="POST" id="finalizar_compra">
-
-                    <div class="form-floating mb-4 mt-3">
-                        <input type="text" class="form-control" name="persona" id="persona" placeholder="Text">
-                        <label for="floatingInput">Nombre y Apellido</label>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <div class="form-floating mb-4 mt-3">
+                                <input type="text" class="form-control" name="persona" id="persona" placeholder="Text">
+                                <label for="floatingInput">Nombre y Apellido</label>
+                            </div>
+                            <div class="form-floating mb-4 mt-3">
+                                <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Text">
+                                <label for="floatingInput">Tel:</label>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="form-floating mb-4 mt-3">
+                                <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Text">
+                                <label for="floatingInput">Direccion</label>
+                            </div>
+                            <div class="form-floating mb-5">
+                                <input type="email" class="form-control" name="email_id" id="email_id"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Email</label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-floating mb-5">
-                        <input type="email" class="form-control" name="email_id" id="email_id"
-                            placeholder="name@example.com">
-                        <label for="floatingInput">Email address</label>
-                    </div>
+                    
                     <table class="table section_compra" id="registro_compra">
                         <thead>
                             <tr>
