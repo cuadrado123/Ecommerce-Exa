@@ -228,11 +228,10 @@ function guardar_localStorage() {
 btn_carrito.addEventListener("click", function () {
     let carro = document.getElementById("carrito");
 
-    if (carro.style.display != "none") {
-        carro.style.display = "none";
+    if (carro.classList.add("d-flex")) {
+        carro.classList.add("d-flex");
     } else {
-        carro.style.display = "block";
-
+        carro.classList.remove("d-none");
     }
 })
 
@@ -252,11 +251,11 @@ function cargarPedido() {
 
         let row = document.createElement("tr")
         row.innerHTML += `
-                          <td><img class="img-fluid rounded-circle img_carrito" src="${img}" /></td>
-                          <td>${nombre}</td>
-                          <td>${cantidad}</td>
+                          <td><img class="img-fluid rounded-circle img_carrito" name="img" id="img" src="${img}" /></td>
+                          <td name="nombre" id="nombre">${nombre}</td>
+                          <td name="cantidad" id="cantidad">${cantidad}</td>
                           <td>${precio}</td>
-                          <td>${precio * cantidad}</td>`
+                          <td name="precio" id="precio">${precio * cantidad}</td>`
 
         registro_compra.appendChild(row);
     })
@@ -270,7 +269,9 @@ function enviar_compra(e) {
     const persona = document.querySelector("#persona").value
     const correo = document.querySelector("#email_id").value
 
+    // creo una condicion de si no se llenan los datos del form no se puede finalizar la compra
     if (correo === "" || persona === "") {
+        //creo una alerta con sweetAlert
         Swal.fire({
             title: "Debes completar tus datos",
             text: "Rellana el formulario",
@@ -279,12 +280,8 @@ function enviar_compra(e) {
         })
     }
     else {
-
+        //Uso email.js para enviar un mail de que se realizo la compra con exito 
         const btn = document.getElementById('button');
-        
-        // document.getElementById('procesar-pago')
-        //  .addEventListener('submit', function(event) {
-        //    event.preventDefault();
 
         btn.value = 'Enviando...';
 
@@ -299,8 +296,8 @@ function enviar_compra(e) {
                 btn.value = 'Finalizar compra';
                 alert(JSON.stringify(err));
             });
-
-
+        
+        // crea un spinner que simula el tiempo que tarda en hacerse la compra
         let spinner = document.querySelector("#spinner");
         spinner.classList.add("d-flex");
         spinner.classList.remove("d-none");

@@ -26,6 +26,10 @@
     padding-bottom: 20px;
 }
 
+.total_final{
+    padding-left: 21%;
+}
+
 .monto_total{
     padding-left: 15%;
 }
@@ -81,7 +85,12 @@ main .contenedor {
     margin-left: 10%;
 }
 
-.table button{
-    margin-left: 5rem;
+.table a{
+    margin-left: 25rem;
     margin-bottom: 1rem;
 }
+
+.table input{
+    margin-bottom: 1rem;
+}
+
